@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="5dp"
+    android:orientation="vertical"
+    android:background="#FFFF00">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Event Information"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:gravity="center"/>
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        android:background="@color/white">
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name"/>
+
+            <EditText
+                android:id="@+id/Name"
+                android:layout_width="0dp"
+                android:layout_weight="1" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Place"/>
+
+            <EditText
+                android:id="@+id/Place"
+                android:layout_width="0dp"
+                android:layout_weight="1" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Type"
+                android:layout_gravity="center_vertical"/>
+
+            <RadioGroup
+                android:id="@+id/rg1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/Indoor"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Indoor" />
+
+                <RadioButton
+                    android:id="@+id/Outdoor"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Outdoor" />
+
+                <RadioButton
+                    android:id="@+id/Online"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Online" />
+            </RadioGroup>
+
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Date &amp; Time" />
+
+
+            <EditText
+                android:id="@+id/DateTime"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:inputType="datetime"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Capacity" />
+            <EditText
+                android:id="@+id/Capacity"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:inputType="number"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Budget" />
+
+            <EditText
+                android:id="@+id/Budget"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:inputType="numberDecimal"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email" />
+
+            <EditText
+                android:id="@+id/Email"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:inputType="textEmailAddress"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone" />
+
+            <EditText
+                android:id="@+id/Phone"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:inputType="phone"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Description"/>
+
+            <EditText
+                android:id="@+id/Description"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:lines="5"/>
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/errortv"
+                android:layout_height="match_parent"
+                android:hint="Error message will be show here"
+                android:textColor="#FF0000"
+                android:layout_column="1"
+                android:gravity="center"/>
+
+        </TableRow>
+
+
+    </TableLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btnCnl"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Cancel"
+            android:backgroundTint="#FFFF00"
+            android:textColor="@color/black"/>
+        <Button
+            android:id="@+id/btnShare"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Share"
+            android:backgroundTint="#FFFF00"
+            android:textColor="@color/black"/>
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Save"
+            android:backgroundTint="#FFFF00"
+            android:textColor="@color/black"/>
+    </LinearLayout>
+</LinearLayout>
