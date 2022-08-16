@@ -4,6 +4,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,19 +14,21 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.google.firebase.firestore.util.Util;
 
-public class MainActivity extends AppCompatActivity {
+
+public class EventInfoActivity extends AppCompatActivity {
     EditText Name, Place, DateTime,Capacity, Budget, Email, Phone, Description;
     TextView errortv;
     RadioGroup radioGrp;
     RadioButton Indoor, Outdoor, Online, rdbtn;
     Button btnCancel,btnShare, btnSave;
-
+    private String existingKey = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_eventinfo);
 
         Name = (EditText)findViewById(R.id.Name);
         Place = (EditText)findViewById(R.id.Place);
@@ -175,8 +179,9 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-
+        loadDb();
     }
+
     private void showDialog(String message, String title, String key1, String key2){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(message);
@@ -185,7 +190,12 @@ public class MainActivity extends AppCompatActivity {
                 .setPositiveButton(key1, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
-                        //Util.getInstance().deleteByKey(MainActivity.this, key);
+                       // Util.getInstance().deleteByKey(EventInfoActivity.this, key);
+
+                        if(key1=="Yes"){
+                            SaveInDb();
+                            loadDb();
+                        }
                         dialog.cancel();
                         // loadDate();
                         // adapter.notifyDataSetChanged();
@@ -200,5 +210,63 @@ public class MainActivity extends AppCompatActivity {
 
         AlertDialog alert = builder.create();
         alert.show();
+    }
+
+    private  void loadDb(){
+
+    KeyValueDB db = new KeyValueDB(getApplicationContext());
+    String value = db.getValueByKey(existingKey);
+    System.out.println("Value loaded from db: "+value);
+    if(value != null) {
+        String[] fieldValues = value.split("::");
+        String name = fieldValues[0];
+        String place = fieldValues[1];
+        String dateTime = fieldValues[3];
+        String eventType = fieldValues[2];
+        String capacity = fieldValues[4];
+        String budget = fieldValues[5];
+        String email = fieldValues[6];
+        String phone = fieldValues[7];
+        String desc = fieldValues[8];
+
+        Name.setText(name);
+        DateTime.setText(dateTime);
+        Place.setText(place);
+        Capacity.setText(capacity);
+        Budget.setText(budget);
+        Email.setText(email);
+        Phone.setText(phone);
+        Description.setText(desc);
+
+        if (eventType.equals("Indoor")) {
+            Indoor.setChecked(true);
+        } else if (eventType.equals("Outdoor")) {
+            Outdoor.setChecked(true);
+        } else if (eventType.equals("Online")) {
+            Online.setChecked(true);
+        }
+    }
+}
+    private void SaveInDb(){
+        String name = Name.getText().toString().trim();
+        String place = Place.getText().toString().trim();
+        String time = DateTime.getText().toString().trim();
+        String capacity = Capacity.getText().toString().trim();
+        String budget = Budget.getText().toString().trim();
+        String email = Email.getText().toString().trim();
+        String phone = Phone.getText().toString().trim();
+        String description = Description.getText().toString().trim();
+        String eventType = rdbtn.getText().toString();
+
+        String value = name+"::"+ place +"::"+eventType+"::"+time+"::"+capacity+"::"+budget+"::"+email+"::"+phone+"::"+description+"::";
+
+        String key = name+"::"+ place +"::"+System.currentTimeMillis();
+
+        if(existingKey != null){
+            key = existingKey;
+        }else existingKey = key;
+        KeyValueDB db = new KeyValueDB(getApplicationContext());
+        db.updateValueByKey(key,value);
+
     }
 }

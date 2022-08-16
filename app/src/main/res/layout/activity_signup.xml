@@ -4,139 +4,140 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignupActivity"
     android:orientation="vertical"
     android:padding="20dp"
-    android:background="#FFFF00">
+    android:background="#FFFF00"
+    tools:context=".SignupActivity">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="SignUp"
         android:textSize="35dp"
         android:gravity="center_horizontal"/>
-
-    <TableLayout
+<TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="10dp"
         android:layout_weight="8"
         android:background="@color/white">
-        <TableRow>
+    <TableRow>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name" />
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="0dp"
+            android:layout_weight="1"/>
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email:" />
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="0dp"
+            android:layout_weight="1"/>
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phone" />
+
+        <EditText
+            android:id="@+id/Phone"
+            android:layout_width="0dp"
+            android:layout_weight="1"/>
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="User ID:" />
+
+        <EditText
+            android:id="@+id/uid"
+            android:layout_width="0dp"
+            android:layout_weight="1"/>
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password" />
+
+        <EditText
+            android:id="@+id/pass"
+            android:layout_width="0dp"
+            android:layout_weight="1"/>
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Re-enter password" />
+
+        <EditText
+            android:id="@+id/re_pass"
+            android:layout_width="0dp"
+            android:layout_weight="1"/>
+    </TableRow>
+    <TableRow>
+        <LinearLayout>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/checkbox1"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Name" />
+                android:text="Remember User ID" />
+        </LinearLayout>
 
-            <EditText
-                android:id="@+id/name"
-                android:layout_width="0dp"
-                android:layout_weight="1"/>
-        </TableRow>
+    </TableRow>
+    <TableRow>
+        <LinearLayout>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/checkbox2"/>
 
-        <TableRow>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Email:" />
+                android:text="Remember Passward" />
+        </LinearLayout>
+    </TableRow>
 
-            <EditText
-                android:id="@+id/email"
-                android:layout_width="0dp"
-                android:layout_weight="1"/>
-        </TableRow>
-
-        <TableRow>
+    <TableRow>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_weight="1">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Phone" />
-
-            <EditText
-                android:id="@+id/Phone"
-                android:layout_width="0dp"
-                android:layout_weight="1"/>
-        </TableRow>
-
-        <TableRow>
+                android:text="Already have account?" />
             <TextView
+                android:id="@+id/logintxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="User ID:" />
+                android:text=" login" />
+        </LinearLayout>
+    </TableRow>
 
-            <EditText
-                android:id="@+id/uid"
-                android:layout_width="0dp"
-                android:layout_weight="1"/>
-        </TableRow>
-        <TableRow>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Password" />
+</TableLayout>
 
-            <EditText
-                android:id="@+id/pass"
-                android:layout_width="0dp"
-                android:layout_weight="1"/>
-        </TableRow>
-        <TableRow>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Re-enter password" />
-
-            <EditText
-                android:id="@+id/re_pass"
-                android:layout_width="0dp"
-                android:layout_weight="1"/>
-        </TableRow>
-        <TableRow>
-            <LinearLayout>
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/checkbox1"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Remember User ID" />
-            </LinearLayout>
-
-        </TableRow>
-        <TableRow>
-            <LinearLayout>
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/checkbox2"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Remember Passward" />
-            </LinearLayout>
-        </TableRow>
-
-        <TableRow>
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:layout_weight="1">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Already have account?" />
-                <TextView
-                    android:id="@+id/logintxt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=" login" />
-            </LinearLayout>
-        </TableRow>
-    </TableLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
