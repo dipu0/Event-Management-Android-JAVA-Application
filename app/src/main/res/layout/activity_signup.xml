@@ -13,84 +13,212 @@
         android:layout_height="wrap_content"
         android:text="SignUp"
         android:textSize="35dp"
+        android:layout_margin="15dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         android:gravity="center_horizontal"/>
-<TableLayout
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="10dp"
-        android:layout_weight="8"
-        android:background="@color/white">
-    <TableRow>
-        <TextView
-            android:layout_width="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:padding="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Name" />
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="4"
+                android:text="Name"
+                android:textSize="25sp"/>
 
-        <EditText
-            android:id="@+id/name"
-            android:layout_width="0dp"
-            android:layout_weight="1"/>
-    </TableRow>
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="6">
 
-    <TableRow>
-        <TextView
-            android:layout_width="wrap_content"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="5dp"
+                    android:hint="Md. Asad Chowdhury Dipu"
+                    android:padding="10dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Email:" />
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:layout_gravity="center"
+                android:text="Email"
+                android:textSize="25sp"/>
 
-        <EditText
-            android:id="@+id/email"
-            android:layout_width="0dp"
-            android:layout_weight="1"/>
-    </TableRow>
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="6">
 
-    <TableRow>
-        <TextView
-            android:layout_width="wrap_content"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="5dp"
+                    android:hint="c.dipu0@gmail.com"
+                    android:padding="10dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Phone" />
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:layout_gravity="center"
+                android:text="Phone"
+                android:textSize="25sp"/>
 
-        <EditText
-            android:id="@+id/Phone"
-            android:layout_width="0dp"
-            android:layout_weight="1"/>
-    </TableRow>
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="6">
 
-    <TableRow>
-        <TextView
-            android:layout_width="wrap_content"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/Phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="5dp"
+                    android:hint="01521583534"
+                    android:padding="10dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="User ID:" />
+            android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/uid"
-            android:layout_width="0dp"
-            android:layout_weight="1"/>
-    </TableRow>
-    <TableRow>
-        <TextView
-            android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:layout_gravity="center"
+                android:text="User ID"
+                android:textSize="25sp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="6">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/uid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="5dp"
+                    android:hint="c.dipu0"
+                    android:padding="10dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Password" />
+            android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/pass"
-            android:layout_width="0dp"
-            android:layout_weight="1"/>
-    </TableRow>
-    <TableRow>
-        <TextView
-            android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:layout_gravity="center"
+                android:text="Password"
+                android:textSize="25sp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="6"
+                app:passwordToggleEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/pass"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="5dp"
+                    android:hint="************"
+                    android:inputType="textPassword"
+                    android:padding="10dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LL1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Re-enter password" />
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:layout_gravity="center"
+                android:text="Re-enter password"
+                android:textSize="25sp"/>
 
-        <EditText
-            android:id="@+id/re_pass"
-            android:layout_width="0dp"
-            android:layout_weight="1"/>
-    </TableRow>
-    <TableRow>
-        <LinearLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="6"
+                app:passwordToggleEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/re_pass"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="5dp"
+                    android:hint="************"
+                    android:inputType="textPassword"
+                    android:padding="10dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -99,12 +227,15 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="25sp"
                 android:text="Remember User ID" />
         </LinearLayout>
 
-    </TableRow>
-    <TableRow>
-        <LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -113,11 +244,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="25sp"
                 android:text="Remember Passward" />
         </LinearLayout>
-    </TableRow>
 
-    <TableRow>
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
@@ -127,16 +257,19 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Already have account?" />
+                android:text="Already have account?"
+                android:textSize="25sp"/>
             <TextView
                 android:id="@+id/logintxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" login" />
+                android:text=" login"
+                android:textStyle="italic"
+                android:textSize="25sp"
+                android:textColor="@color/design_default_color_primary"/>
         </LinearLayout>
-    </TableRow>
 
-</TableLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
