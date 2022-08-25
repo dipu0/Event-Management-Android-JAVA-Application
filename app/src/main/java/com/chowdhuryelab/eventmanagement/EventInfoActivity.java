@@ -221,7 +221,6 @@ public class EventInfoActivity extends AppCompatActivity {
 
     KeyValueDB db = new KeyValueDB(getApplicationContext());
     String value = db.getValueByKey(existingKey);
-    System.out.println("Value loaded from db: "+value);
     if(value != null) {
         String[] fieldValues = value.split("::");
         String name = fieldValues[0];
@@ -265,11 +264,12 @@ public class EventInfoActivity extends AppCompatActivity {
 
         String value = name+"::"+ place +"::"+time+"::"+capacity+"::"+budget+"::"+email+"::"+phone+"::"+description+"::"+eventType+"::";
 
-        String key = name+"::"+ place +"::"+System.currentTimeMillis();
+        String key = name+"::"+System.currentTimeMillis();
 
         if(existingKey != null){
             key = existingKey;
         }else existingKey = key;
+
         KeyValueDB db = new KeyValueDB(getApplicationContext());
         db.updateValueByKey(key,value);
 

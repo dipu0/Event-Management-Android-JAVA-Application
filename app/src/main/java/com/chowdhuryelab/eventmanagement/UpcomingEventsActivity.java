@@ -34,7 +34,7 @@ public class UpcomingEventsActivity<adapter> extends AppCompatActivity {
         btnExit.setOnClickListener(view -> finish());
 
         loadDb();
-
+        System.out.println("LIST>>>>>>>>>>>>>>>>>:" +list);
         CustomEventAdapter adapter = new CustomEventAdapter(this, list);
         listView.setAdapter(adapter);
 
@@ -51,13 +51,13 @@ public class UpcomingEventsActivity<adapter> extends AppCompatActivity {
     }
 
     private  void loadDb(){
+        list.clear();
         KeyValueDB db = new KeyValueDB(getApplicationContext());
         Cursor res = db.getAllKeyValues();
         if (res.getCount() == 0) {
             return;
         }else{
             while(res.moveToNext()){
-                list.clear();
                 String key = res.getString(0);
                 String value = res.getString(1);
 
@@ -73,18 +73,47 @@ public class UpcomingEventsActivity<adapter> extends AppCompatActivity {
                 String desc = fieldValues[7];
                 String eventType = fieldValues[8];
 
-                Event e = new Event(key, name, place, dateTime,eventType,capacity, budget, email, phone, desc);
+                Event e = new Event(key, name, place, dateTime,capacity, budget, email, phone, desc,eventType);
                 list.add(e);
             }
         }
         db.close();
     }
-
     @Override
-    protected void onPostResume() {
-        super.onPostResume();
+    public void onResume() {
+        super.onResume();
         loadDb();
         CustomEventAdapter adapter = new CustomEventAdapter(this, list);
         listView.setAdapter(adapter);
+        System.out.println("@MainActivity.onResume");
     }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        System.out.println("@MainActivity.onPause");
+    }
+
+    @Override
+    public void onRestart() {
+        super.onRestart();
+        System.out.println("@MainActivity.onRestart");
+        // re-load events from database after coming back from the next page
+        loadDb();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        System.out.println("@MainActivity.onStop");
+        // clear the event data from memory as the page is completely hidden by now
+        loadDb();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        System.out.println("@MainActivity.onDestroy");
+    }
+
 }
