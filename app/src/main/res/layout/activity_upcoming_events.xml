@@ -16,8 +16,7 @@
         android:text="Upcoming Events"
         android:textColor="@color/black"
         android:textSize="24sp"
-        android:textStyle="bold"
-        tools:ignore="HardcodedText" />
+        android:textStyle="bold"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,7 +25,7 @@
         android:background="@color/white">
 
         <ListView
-            android:id="@+id/lvEvents"
+            android:id="@+id/lvE"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginVertical="8dp"
@@ -34,8 +33,7 @@
             android:text="Event List"
             android:textColor="@color/black"
             android:textSize="24sp"
-            android:textStyle="bold"
-            tools:ignore="HardcodedText" />
+            android:textStyle="bold"/>
 
     </LinearLayout>
 

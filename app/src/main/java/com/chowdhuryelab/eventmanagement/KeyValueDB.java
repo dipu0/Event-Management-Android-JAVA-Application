@@ -75,11 +75,11 @@ public class KeyValueDB extends SQLiteOpenHelper {
 		}
 	}
 
-//	public Cursor getAllKeyValues() {
-//		SQLiteDatabase db = this.getWritableDatabase();
-//		Cursor res = db.rawQuery("select * from " + TABLE_KEY_VALUE, null);
-//		return res;
-//	}
+	public Cursor getAllKeyValues() {
+		SQLiteDatabase db = this.getWritableDatabase();
+		Cursor res = db.rawQuery("select * from " + TABLE_KEY_VALUE, null);
+		return res;
+	}
 
 	public boolean updateValueByKey(String key, String value) {
 		SQLiteDatabase db = this.getWritableDatabase();

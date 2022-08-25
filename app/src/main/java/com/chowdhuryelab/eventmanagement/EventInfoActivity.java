@@ -179,7 +179,11 @@ public class EventInfoActivity extends AppCompatActivity {
 
         });
 
+        Intent intent = getIntent();
+        existingKey = intent.getStringExtra("EventKey");
+
         loadDb();
+
     }
 
     private void showDialog(String message, String title, String key1, String key2){
@@ -195,6 +199,7 @@ public class EventInfoActivity extends AppCompatActivity {
                         if(key1=="Yes"){
                             SaveInDb();
                             loadDb();
+                            finish();
                         }
                         dialog.cancel();
                         // loadDate();
@@ -221,13 +226,13 @@ public class EventInfoActivity extends AppCompatActivity {
         String[] fieldValues = value.split("::");
         String name = fieldValues[0];
         String place = fieldValues[1];
-        String dateTime = fieldValues[3];
-        String eventType = fieldValues[2];
-        String capacity = fieldValues[4];
-        String budget = fieldValues[5];
-        String email = fieldValues[6];
-        String phone = fieldValues[7];
-        String desc = fieldValues[8];
+        String dateTime = fieldValues[2];
+        String capacity = fieldValues[3];
+        String budget = fieldValues[4];
+        String email = fieldValues[5];
+        String phone = fieldValues[6];
+        String desc = fieldValues[7];
+        String eventType = fieldValues[8];
 
         Name.setText(name);
         DateTime.setText(dateTime);
@@ -258,7 +263,7 @@ public class EventInfoActivity extends AppCompatActivity {
         String description = Description.getText().toString().trim();
         String eventType = rdbtn.getText().toString();
 
-        String value = name+"::"+ place +"::"+eventType+"::"+time+"::"+capacity+"::"+budget+"::"+email+"::"+phone+"::"+description+"::";
+        String value = name+"::"+ place +"::"+time+"::"+capacity+"::"+budget+"::"+email+"::"+phone+"::"+description+"::"+eventType+"::";
 
         String key = name+"::"+ place +"::"+System.currentTimeMillis();
 

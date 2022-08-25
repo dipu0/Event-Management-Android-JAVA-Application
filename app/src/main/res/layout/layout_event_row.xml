@@ -7,7 +7,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <TextView
-        android:id="@+id/event_name"
+        android:id="@+id/tvEventName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#8C9EFF"
@@ -16,23 +16,22 @@
         tools:text="Event Name" />
 
     <TextView
-        android:id="@+id/place"
+        android:id="@+id/tvEventPlaceName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/event_name"
+        android:layout_below="@id/tvEventName"
         android:lines="2"
         android:text="Location Here"
         android:textColor="@color/black" />
 
     <TextView
-        android:id="@+id/date_time"
+        android:id="@+id/tvEventDateTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="end"
-        android:textColor="@color/black"
-        android:textSize="15dp"
         android:text="Date and Time Here"
-        />
+        android:textColor="@color/black"
+        android:textSize="15dp" />
 
 
 </RelativeLayout>
