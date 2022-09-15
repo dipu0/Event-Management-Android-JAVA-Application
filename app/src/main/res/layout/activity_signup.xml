@@ -27,146 +27,77 @@
         android:background="@color/white"
         android:padding="10dp">
 
-        <LinearLayout
-            android:id="@+id/LL1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="4"
-                android:text="Name"
-                android:textSize="25sp"/>
-
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/LL1"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="6">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawablePadding="5dp"
+                    android:hint="Name"
                     android:padding="10dp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/LL2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:layout_gravity="center"
-                android:text="Email"
-                android:textSize="25sp"/>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/LL2"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="6">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:hint="Email"
                     android:drawablePadding="5dp"
                     android:padding="10dp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/LL3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:layout_gravity="center"
-                android:text="Phone"
-                android:textSize="25sp"/>
-
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/LL3"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="6">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/Phone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:hint="Phone number"
                     android:drawablePadding="5dp"
                     android:padding="10dp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:layout_gravity="center"
-                android:text="User ID"
-                android:textSize="25sp"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="6">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/uid"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:hint="User Id"
                     android:drawablePadding="5dp"
                     android:padding="10dp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
-        </LinearLayout>
 
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:layout_gravity="center"
-                android:text="Password"
-                android:textSize="25sp"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="6"
                 app:passwordToggleEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -174,44 +105,31 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawablePadding="5dp"
+                    android:hint="Password"
                     android:inputType="textPassword"
                     android:padding="10dp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/LL4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:layout_gravity="center"
-                android:text="Re-enter password"
-                android:textSize="25sp"/>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/LL4"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="6"
                 app:passwordToggleEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/re_pass"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:hint="Re-enter password"
                     android:drawablePadding="5dp"
                     android:inputType="textPassword"
                     android:padding="10dp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
-        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/llremberuserid"

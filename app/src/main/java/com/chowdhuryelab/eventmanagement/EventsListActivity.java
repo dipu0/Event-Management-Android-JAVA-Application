@@ -45,6 +45,8 @@ public class EventsListActivity<adapter> extends AppCompatActivity {
         btnExit.setOnClickListener(view -> finish());
 
         loadDb();
+        adapter = new CustomEventAdapter(this, list);
+        listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -55,7 +57,17 @@ public class EventsListActivity<adapter> extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        System.out.println("@EventLintActivity.onStart");
+        loadDb();
+
+    }
+
     @SuppressLint("StaticFieldLeak")
     private void httpReadRequest(String[] keys, String[] values) {
         new AsyncTask<Void, Void,String>(){
@@ -101,7 +113,6 @@ public class EventsListActivity<adapter> extends AppCompatActivity {
             String[] values ={"restore","2019-1-60-093","2022-2"};
             httpReadRequest(keys, values);
         }
-
         while(res.moveToNext()){
             String key = res.getString(0);
             String value = res.getString(1);
@@ -122,10 +133,10 @@ public class EventsListActivity<adapter> extends AppCompatActivity {
             list.add(e);
         }
 
-        db.close();
-
         adapter = new CustomEventAdapter(this, list);
         listView.setAdapter(adapter);
+
+        db.close();
 
     }
 
@@ -161,6 +172,32 @@ public class EventsListActivity<adapter> extends AppCompatActivity {
             KeyValueDB db = new KeyValueDB(getApplicationContext());
             db.updateValueByKey(key,value);
         }
+        list.clear();
+        KeyValueDB db = new KeyValueDB(getApplicationContext());
+        Cursor res = db.getAllKeyValues();
+
+        while(res.moveToNext()){
+            String key = res.getString(0);
+            String value = res.getString(1);
+
+            String[] fieldValues = value.split("::");
+
+            String name = fieldValues[0];
+            String place = fieldValues[1];
+            String dateTime = fieldValues[2];
+            String capacity = fieldValues[3];
+            String budget = fieldValues[4];
+            String email = fieldValues[5];
+            String phone = fieldValues[6];
+            String desc = fieldValues[7];
+            String eventType = fieldValues[8];
+
+            Event e = new Event(key, name, place, dateTime,capacity, budget, email, phone, desc,eventType);
+            list.add(e);
+        }
+
+        adapter = new CustomEventAdapter(this, list);
+        listView.setAdapter(adapter);
 
     }
 
@@ -168,21 +205,19 @@ public class EventsListActivity<adapter> extends AppCompatActivity {
     public void onResume() {
         super.onResume();
         loadDb();
-        adapter = new CustomEventAdapter(this, list);
-        listView.setAdapter(adapter);
-        System.out.println("@MainActivity.onResume");
+        System.out.println("@EventLintActivity.onResume");
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        System.out.println("@MainActivity.onPause");
+        System.out.println("@EventLintActivity.onPause");
     }
 
     @Override
     public void onRestart() {
         super.onRestart();
-        System.out.println("@MainActivity.onRestart");
+        System.out.println("@EventLintActivity.onRestart");
         // re-load events from database after coming back from the next page
         loadDb();
     }
@@ -190,7 +225,7 @@ public class EventsListActivity<adapter> extends AppCompatActivity {
     @Override
     public void onStop() {
         super.onStop();
-        System.out.println("@MainActivity.onStop");
+        System.out.println("@EventLintActivity.onStop");
         // clear the event data from memory as the page is completely hidden by now
         loadDb();
     }
@@ -198,7 +233,7 @@ public class EventsListActivity<adapter> extends AppCompatActivity {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        System.out.println("@MainActivity.onDestroy");
+        System.out.println("@EventLintActivity.onDestroy");
     }
 
 }

@@ -135,8 +135,14 @@ public class SignupActivity extends AppCompatActivity {
                     Intent i = new Intent(SignupActivity.this, EventsListActivity.class);
                     startActivity(i);
                     finish();
-                    }else matchInfo = matchInfo+"Password ";
-                }else matchInfo = matchInfo+"User ID ";
+                    }else{
+                        matchInfo = matchInfo+"Password ";
+                        passwword.setError("Wrong Password");
+                    }
+                }else{
+                    matchInfo = matchInfo+"User ID ";
+                    userid.setError("No user found");
+                }
 
                 if(!matchInfo.isEmpty()){
                     matchInfo = matchInfo+" does not match";
@@ -182,14 +188,28 @@ public class SignupActivity extends AppCompatActivity {
                     System.out.println("Email :" + email.getText());
                 }
                 if (phone.getText().toString().length()<10) {
-                    name.setError("Error in Phone field");
+                    phone.setError("Error in Phone field");
                     error = true;
                 }
                 else {
                     System.out.println("Phone :" + phone.getText());
                 }
+                if (userid.getText().toString().length()<2) {
+                    userid.setError("Error in user id field");
+                    error = true;
+                }
+                else {
+                    System.out.println("User id :" + userid.getText());
+                }
                 if (passwword.getText().toString().length()<5) {
-                    name.setError("Error in password field");
+                    passwword.setError("Error in password field");
+                    error = true;
+                }
+                else {
+
+                }
+                if (!passwword.getText().toString().equals(re_passwword.getText().toString())) {
+                    re_passwword.setError("Error in password field");
                     error = true;
                 }
                 else {
