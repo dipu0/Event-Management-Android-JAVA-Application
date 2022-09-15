@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.chowdhuryelab.eventmanagement" >
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,24 +14,29 @@
         android:roundIcon="@drawable/event_management"
         android:supportsRtl="true"
         android:theme="@style/Theme.EventManagement"
-        tools:targetApi="31" >
+        tools:targetApi="31"
+        android:usesCleartextTraffic="true">
         <activity
-            android:name=".UpcomingEventsActivity"
-            android:exported="true">
+            android:name=".EventsListActivity"
+            android:exported="true"/>
+
+        <activity
+            android:name=".SignupActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".SignupActivity"
-            android:exported="false" >
-        </activity>
+
         <activity
             android:name=".EventInfoActivity"
-            android:exported="true" >
-        </activity>
+            android:exported="true" />
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false"/>
     </application>
 
 </manifest>

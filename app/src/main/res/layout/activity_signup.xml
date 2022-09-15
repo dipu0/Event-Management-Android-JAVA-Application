@@ -9,6 +9,7 @@
     android:background="#FFFF00"
     tools:context=".SignupActivity">
     <TextView
+        android:id="@+id/topTv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="SignUp"
@@ -19,14 +20,15 @@
         android:gravity="center_horizontal"/>
 
     <LinearLayout
-        android:id="@+id/LL1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:orientation="vertical"
         android:background="@color/white"
         android:padding="10dp">
+
         <LinearLayout
+            android:id="@+id/LL1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -49,7 +51,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawablePadding="5dp"
-                    android:hint="Md. Asad Chowdhury Dipu"
                     android:padding="10dp" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -80,7 +81,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawablePadding="5dp"
-                    android:hint="c.dipu0@gmail.com"
                     android:padding="10dp" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -111,7 +111,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawablePadding="5dp"
-                    android:hint="01521583534"
                     android:padding="10dp" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -142,7 +141,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawablePadding="5dp"
-                    android:hint="c.dipu0"
                     android:padding="10dp" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -176,7 +174,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawablePadding="5dp"
-                    android:hint="************"
                     android:inputType="textPassword"
                     android:padding="10dp" />
 
@@ -209,7 +206,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawablePadding="5dp"
-                    android:hint="************"
                     android:inputType="textPassword"
                     android:padding="10dp" />
 
@@ -218,6 +214,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/llremberuserid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -235,6 +232,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/llremberpws"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -248,10 +246,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="25sp"
-                android:text="Remember Passward" />
+                android:text="Remember Password" />
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/ll_already_have_a_account"
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -284,6 +283,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:layout_margin="5dp"
             android:text="Exit"
             android:backgroundTint="#FFFF00"
             android:textColor="@color/black"/>
@@ -292,6 +292,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:layout_margin="5dp"
             android:text="Go"
             android:backgroundTint="#FFFF00"
             android:textColor="@color/black"/>

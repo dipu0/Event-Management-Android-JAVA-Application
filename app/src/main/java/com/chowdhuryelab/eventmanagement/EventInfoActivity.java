@@ -3,9 +3,11 @@ package com.chowdhuryelab.eventmanagement;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,7 +16,15 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.google.firebase.crashlytics.buildtools.reloc.org.apache.http.NameValuePair;
+import com.google.firebase.crashlytics.buildtools.reloc.org.apache.http.message.BasicNameValuePair;
 import com.google.firebase.firestore.util.Util;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class EventInfoActivity extends AppCompatActivity {
@@ -23,6 +33,7 @@ public class EventInfoActivity extends AppCompatActivity {
     RadioGroup radioGrp;
     RadioButton Indoor, Outdoor, Online, rdbtn;
     Button btnCancel,btnShare, btnSave;
+    String value, key;
     private String existingKey = null;
 
     @Override
@@ -250,6 +261,8 @@ public class EventInfoActivity extends AppCompatActivity {
             Online.setChecked(true);
         }
     }
+
+
 }
     private void SaveInDb(){
         String name = Name.getText().toString().trim();
@@ -262,16 +275,55 @@ public class EventInfoActivity extends AppCompatActivity {
         String description = Description.getText().toString().trim();
         String eventType = rdbtn.getText().toString();
 
-        String value = name+"::"+ place +"::"+time+"::"+capacity+"::"+budget+"::"+email+"::"+phone+"::"+description+"::"+eventType+"::";
-
-        String key = name+"::"+System.currentTimeMillis();
+        value = name+"::"+ place +"::"+time+"::"+capacity+"::"+budget+"::"+email+"::"+phone+"::"+description+"::"+eventType+"::";
 
         if(existingKey != null){
             key = existingKey;
-        }else existingKey = key;
+        }else key = name+"::"+System.currentTimeMillis();
+
+        String[] keys = {"action", "id","semester", "key","event"};
+        String[] values ={"backup","2019-1-60-093","2022-2",key, value};
+
+        httpRequest(keys, values);
 
         KeyValueDB db = new KeyValueDB(getApplicationContext());
         db.updateValueByKey(key,value);
 
+    }
+    @SuppressLint("StaticFieldLeak")
+    private void httpRequest(String[] keys, String[] values) {
+        new AsyncTask<Void, Void,String>(){
+            @Override
+            protected String doInBackground(Void...param){
+                try{
+                    List<NameValuePair> params = new ArrayList<NameValuePair>();
+                    for(int i =0; i<keys.length;i++){
+                        params.add(new BasicNameValuePair(keys[i],values[i]));
+                    }
+                    String data = JSONParser.getInstance().makeHttpRequest("https://muthosoft.com/univ/cse489/index.php", "POST",params);
+                    return data;
+            }catch(Exception ex){
+                ex.printStackTrace();
+            }
+            return null;
+        }
+        @Override
+            protected void onPostExecute(String data){
+                if(data != null){
+                    try{
+                        System.out.println(data+"text/html"+"UTF-8");
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+                }
+        }
+
+        }.execute();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadDb();
     }
 }
